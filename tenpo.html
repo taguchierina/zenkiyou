@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>店舗検索</title>
+</head>
+<body>
+        <h1>お店を探そう</h1>
+
+                <div class="pulldownset cityward">
+                    ■場所を探そう
+                    <select class="mainselect">
+                        <option value="">県を選択</option>
+                        <option value="kyoto" id="kyo">京都府</option>
+                        <option value="siga">滋賀県</option>
+                        <option value="osaka">大阪府</option>
+                        <option value="nara">奈良県</option>
+                        <option value="mie">三重県</option>
+                        <option value="hyogo">兵庫県</option>
+                        <option value="wakayama">和歌山県</option>
+                    </select>
+
+                    <select id="kyoto" class="subbox">
+                        <option value="">京都府エリアを選択</option>
+                        <option value="kyoutosi">京都市</option>
+                        <option value="kameoka">亀岡・舞鶴</option>
+                        <option value="uzi">宇治・長岡京</option>
+                    </select>
+
+                    <select id="siga" class="subbox">
+                        <option value="">滋賀県エリア選択</option>
+                        <option value="kusatu">草津・甲賀</option>
+                        <option value="hikone">彦根・東近江・近江八幡</option>
+                        <option value="oudu">大津</option>
+                        <option value="nagahama">長浜・米原・高島</option>
+                    </select>
+
+                    <select id="osaka" class="subbox">
+                        <option value="">大阪府エリア選択</option>
+                        <option value="osaka1">大阪市(大阪・新大阪・京橋)</option>
+                        <option value="osaka2">大阪市(難波・弁天町)</option>
+                        <option value="osaka3">大阪市(天王寺・天下茶屋)</option>
+                        <option value="sakai">界・泉北</option>
+                        <option value="kisiwada">岸和田・泉南</option>
+                        <option value="toyonaka">豊中・能勢</option>
+                        <option value="takatuki">高槻・三島</option>
+                        <option value="hirakata">枚方・北河内</option>
+                        <option value="higasiosaka">東大阪・中河内</option>
+                        <option value="tondabayasi">富田林・南河内</option>
+                    </select>
+
+                    <select id="nara" class="subbox">
+                        <option value="">奈良県エリア選択</option>
+                        <option value="nara1">奈良・天理・宇陀</option>
+                        <option value="kasihara">橿原・生駒・大和郡山</option>
+                        <option value="gozyou">五條・吉野</option>
+                    </select>
+
+                    <select id="mie" class="subbox">
+                        <option value="">三重県エリア選択</option>
+                        <option value="yokkaiti">四日市・鈴鹿・亀山</option>
+                        <option value="tushi">津市・松坂</option>
+                        <option value="ise">伊勢・志摩</option>
+                        <option value="iga">伊賀・名張</option>
+                        <option value="owase">尾鷲・熊野・紀北</option>
+                    </select>
+
+                    <select id="hyogo" class="subbox">
+                        <option value="">兵庫県エリア選択</option>
+                        <option value="kobe">神戸市</option>
+                        <option value="nisinomiya">西宮・尼崎・宝塚</option>
+                        <option value="akasi">明石・加古川・高砂</option>
+                        <option value="himazi">姫路・たつの</option>
+                        <option value="sanda">三田・丹波</option>
+                        <option value="toyooka">豊岡・朝来</option>
+                    </select>
+                    <select id="wakayama" class="subbox">
+                        <option value="">和歌山県エリア選択</option>
+                        <option value="wakayama1">和歌山・橋本・有田</option>
+                        <option value="tanabe">田辺・御坊</option>
+                        <option value="singuu">新宮・串本</option>
+                    </select>
+                
+                </div>
+
+            <p>
+                <input type="submit" value="検索" id="ke" onclick="kensaku">
+            </p>
+                
+            <script type="text/javascript">
+
+                var targetSub;
+
+                // HTMLの読み込み直後に実行：
+                document.addEventListener('DOMContentLoaded', function () {
+                    
+                    // ▼とりあえずサブBOXを全て非表示にする
+                    var allSubBoxes = document.getElementsByClassName("subbox");
+                    for (var i = 0; i < allSubBoxes.length; i++) {
+                        allSubBoxes[i].style.display = 'none';
+                    }
+
+                    // ▼全てのプルダウンボックスごとに処理
+                    var mainBoxes = document.getElementsByClassName('pulldownset');
+                    for (var i = 0; i < mainBoxes.length; i++) {
+
+                        var mainSelect = mainBoxes[i].getElementsByClassName("mainselect");	// メインのプルダウンメニュー（※後でvalue属性値を参照するので、select要素である必要があります。）
+                        mainSelect[0].onchange = function () {
+                            // 同じ親要素に含まれている全サブBOXを消す
+                            var subBox = this.parentNode.getElementsByClassName("subbox");	// 同じ親要素に含まれる.subbox（※select要素に限らず、どんな要素でも構いません。）
+                            for (var j = 0; j < subBox.length; j++) {
+                                subBox[j].style.display = 'none';
+                            }
+
+                            // 指定されたサブBOXを表示する
+                            if (this.value) {
+                                targetSub = document.getElementById(this.value);	// 「メインのプルダウンメニューで選択されている項目のvalue属性値」と同じ文字列をid属性値に持つ要素を得る
+                                targetSub.style.display = 'inline'; 
+                            }
+                        }
+
+                    }
+
+
+
+                });
+                
+                // 検索ボタンがクリックされた時
+                var ke = document.getElementById('ke').value;
+                document.getElementById('ke').onclick = function(){
+                    // 選択されているサブBOXを取りだす
+                    var e = document.getElementById(targetSub.id);
+                    var strSubBox = e.options[e.selectedIndex].value;
+
+                    var kyo = document.getElementById('kyo').value;
+                    
+
+                    if (strSubBox === "kyoutosi") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=26001&area_name=%B5%FE%C5%D4%BB%D4','_blank');
+                    }
+                }
+                
+            </script>
+</body>
+</html>

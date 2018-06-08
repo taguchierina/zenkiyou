@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>楽しい設定判別</title>
+</head>
+<body>
+    <h1>マイジャクラー３</h1>
+    <form　action="setteianswer.html" method="POST">
+        
+
+            <label　for="soukaiten"> 総回転数: </label>
+                <input type="text" id="soukaiten">
+                <label>G中</label>
+        
+            <label for="bb1">BB:</label>
+                <input type="text" id="bb1">
+                <label>回</label>
+           
+            <label for="rb1">RB:</label>
+                <input type="text" id="rb1">
+                <label>回</label>
+
+        
+        <button id="button">調べる</button>
+
+    </form>
+        <p><input type="button" value="台一覧へ戻る" onclick="history.back()"></p>
+
+<script type="text/javascript">
+
+window.onload = function(){
+//ボタンの要素を取得
+    var button =document.getElementById("button")
+//ボタンをクリックした時の処理
+    button.onclick = function(){
+//入力フォームの値を取得
+        var soukaiten = document.getElementById("soukaiten").value;
+        var bb1 = document.getElementById("bb1").value;
+        var rb1 = document.getElementById("rb1").value;
+//計算式
+        var bb2 = parseInt(soukaiten, 10) / parseInt(bb1, 10);
+        var rb2 = parseInt(soukaiten, 10) /parseInt(rb1, 10);
+        var bb3 = bb2 * rb2;
+        var rb3 = bb2 + rb2;
+        var sum = bb3 / rb3;
+//結果を別の入力フォームに表示
+        var resultForm = document.getElementById("resultForm");
+        resultForm.value = sum;
+
+
+    };
+};  
+  </script>
+            <label for="resultForm">結果:</label>
+            <output type="text" id="resultForm">
+<h2>確率一覧</h2>
+<p>設定1:1/172.5</p>
+<p>設定2:1/159.1</p>
+<p>設定3:1/151.7</p>
+<p>設定4:1/138.9</p>
+<p>設定5:1/132.1</p>
+<p>設定6:1/120.5</p>
+                <p>※これはあくまで推定なので、台の状況と結果を合わせて考えてください。</p>
+</body>
+</html>

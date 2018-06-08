@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>カウンター</title>
+</head>
+<body>
+    <h1>楽しいカウンター</h1>
+
+    <label>打ち始め：<input type="text"></label><br>
+
+    <label>現在回転数：<input type="text"></label>
+    
+<script>
+    document.addEventListener('click', function (e) {
+        var t = e.target;
+        if (t.nodeName == "INPUT" && t.type == "button") {
+            var num = parseInt(t.nextElementSibling.textContent);
+            t.nextElementSibling.textContent = num + 1;
+        }
+    });
+</script>
+<p>
+    <input type="button" value="赤いやつ">
+    <span>0</span>
+</p>
+<p>
+    <input type="button" value="緑のやつ">
+    <span>0</span>
+</p>
+<p>
+    <input type="button" value="その他①">
+    <span>0</span>
+</p>
+<p>
+    <input type="button" value="その他②">
+    <span>0</span>
+</p>
+ 
+</body>
+</html>
