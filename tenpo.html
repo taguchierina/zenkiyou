@@ -5,8 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>店舗検索</title>
+    <link rel="stylesheet" href="/Users/taguchierina/Desktop/zenkiyou/keijiban.css">
 </head>
 <body>
+
+    <body>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="apurikaunntor.html">カウンター</a></li>
+            <li><a href="setteihannbetu.html">設定の判別</a></li>
+            <li><a href="tenpo.html">店舗情報</a></li>
+            <li><a href="keijiban.html">掲示板情報</a></li>
+         </ul>
+    </nav>
         <h1>お店を探そう</h1>
 
                 <div class="pulldownset cityward">
@@ -72,7 +84,7 @@
                         <option value="kobe">神戸市</option>
                         <option value="nisinomiya">西宮・尼崎・宝塚</option>
                         <option value="akasi">明石・加古川・高砂</option>
-                        <option value="himazi">姫路・たつの</option>
+                        <option value="himezi">姫路・たつの</option>
                         <option value="sanda">三田・丹波</option>
                         <option value="toyooka">豊岡・朝来</option>
                     </select>
@@ -82,20 +94,20 @@
                         <option value="tanabe">田辺・御坊</option>
                         <option value="singuu">新宮・串本</option>
                     </select>
-                
+
                 </div>
 
             <p>
                 <input type="submit" value="検索" id="ke" onclick="kensaku">
             </p>
-                
+
             <script type="text/javascript">
 
                 var targetSub;
 
                 // HTMLの読み込み直後に実行：
                 document.addEventListener('DOMContentLoaded', function () {
-                    
+
                     // ▼とりあえずサブBOXを全て非表示にする
                     var allSubBoxes = document.getElementsByClassName("subbox");
                     for (var i = 0; i < allSubBoxes.length; i++) {
@@ -117,7 +129,7 @@
                             // 指定されたサブBOXを表示する
                             if (this.value) {
                                 targetSub = document.getElementById(this.value);	// 「メインのプルダウンメニューで選択されている項目のvalue属性値」と同じ文字列をid属性値に持つ要素を得る
-                                targetSub.style.display = 'inline'; 
+                                targetSub.style.display = 'inline';
                             }
                         }
 
@@ -126,7 +138,7 @@
 
 
                 });
-                
+
                 // 検索ボタンがクリックされた時
                 var ke = document.getElementById('ke').value;
                 document.getElementById('ke').onclick = function(){
@@ -135,13 +147,83 @@
                     var strSubBox = e.options[e.selectedIndex].value;
 
                     var kyo = document.getElementById('kyo').value;
-                    
+
 
                     if (strSubBox === "kyoutosi") {
-                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=26001&area_name=%B5%FE%C5%D4%BB%D4','_blank');
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=26001&area_name=%B5%FE%C5%D4%BB%D4', '_blank');
+                    } else if (strSubBox === "kameoka") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=26002&area_name=%b5%b5%b2%ac%20%c9%f1%c4%e1')
+                    } else if (strSubBox === "uzi") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=26003&area_name=%b1%a7%bc%a3%20%c4%b9%b2%ac%b5%fe')
+                    } else if (strSubBox === "kusatu") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=25001&area_name=%c1%f0%c4%c5%20%b9%c3%b2%ec')
+                    } else if (strSubBox === "hikone") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=25002&area_name=%c9%a7%ba%ac%20%c5%ec%b6%e1%b9%be%20%b6%e1%b9%be%c8%ac%c8%a8')
+                    } else if (strSubBox === "oudu") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=25003&area_name=%c2%e7%c4%c5')
+                    } else if (strSubBox === "nagahama") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=25004&area_name=%c4%b9%c9%cd%20%ca%c6%b8%b6%20%b9%e2%c5%e7')
+                    } else if(strSubBox === "osaka1") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=27001&area_name=%c2%e7%ba%e5%bb%d4%a1%ca%c2%e7%ba%e5%20%bf%b7%c2%e7%ba%e5%20%b5%fe%b6%b6%a1%cb')
+                    } else if (strSubBox === "osaka2") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=27002&area_name=%c2%e7%ba%e5%bb%d4%a1%ca%c6%f1%c7%c8%20%ca%db%c5%b7%c4%ae%a1%cb')
+                    } else if (strSubBox === "osaka3") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=27003&area_name=%c2%e7%ba%e5%bb%d4%a1%ca%c5%b7%b2%a6%bb%fb%20%c5%b7%b2%bc%c3%e3%b2%b0%a1%cb')
+                    } else if (strSubBox === "sakai") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=27006&area_name=%ba%e6%20%c0%f4%cb%cc')
+                    }  else if (strSubBox === "kisiwada") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=27007&area_name=%b4%df%cf%c2%c5%c4%20%c0%f4%c6%ee')
+                    } else if (strSubBox === "toyonaka") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=27004&area_name=%cb%ad%c3%e6%20%c7%bd%c0%aa')
+                    } else if(strSubBox === "takatuki") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=27005&area_name=%b9%e2%c4%d0%20%bb%b0%c5%e7')
+                    } else if (strSubBox === "hirakata") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=27008&area_name=%cb%e7%ca%fd%20%cb%cc%b2%cf%c6%e2')
+                    } else if (strSubBox === "higasiosaka") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=27009&area_name=%c5%ec%c2%e7%ba%e5%20%c3%e6%b2%cf%c6%e2')
+                    } else if (strSubBox === "tondabayasi") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=27010&area_name=%c9%d9%c5%c4%ce%d3%20%c6%ee%b2%cf%c6%e2')
+                    } else if (strSubBox === "nara1") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=29001&area_name=%c6%e0%ce%c9%20%c5%b7%cd%fd%20%b1%a7%c2%cb')
+                    } else if (strSubBox === "kasihara") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=29002&area_name=%b3%e0%b8%b6%20%c0%b8%b6%f0%20%c2%e7%cf%c2%b7%b4%bb%b3')
+                    } else if (strSubBox === "gozyou"){
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=29003&area_name=%b8%de%db%ea%20%b5%c8%cc%ee')
+                    } else if (strSubBox === "yokkaiti") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=24001&area_name=%bb%cd%c6%fc%bb%d4%20%ce%eb%bc%af%20%b5%b5%bb%b3')
+                    } else if (strSubBox === "tushi") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=24002&area_name=%c4%c5%bb%d4%20%be%be%ba%e4')
+                    } else if (strSubBox === "ise") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=24003&area_name=%b0%cb%c0%aa%20%bb%d6%cb%e0')
+                    } else if (strSubBox === "iga") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=24004&area_name=%b0%cb%b2%ec%20%cc%be%c4%a5')
+                    } else if (strSubBox === "owase"){
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=24005&area_name=%c8%f8%cf%c9%20%b7%a7%cc%ee%20%b5%aa%cb%cc')
+                    } else if (strSubBox === "kobe") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=28001&area_name=%bf%c0%b8%cd')
+                    } else if (strSubBox === "nisinomiya") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=28002&area_name=%c0%be%b5%dc%20%c6%f4%ba%ea%20%ca%f5%c4%cd')
+                    } else if (strSubBox === "akasi") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=28003&area_name=%cc%c0%c0%d0%20%b2%c3%b8%c5%c0%ee%20%b9%e2%ba%bd')
+                    } else if (strSubBox === "himezi") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=28004&area_name=%c9%b1%cf%a9%20%a4%bf%a4%c4%a4%ce')
+                    } else if (strSubBox === "sanda") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=28005&area_name=%bb%b0%c5%c4%20%c3%b0%c7%c8')
+                    } else if (strSubBox === "toyooka") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=28006&area_name=%cb%ad%b2%ac%20%c4%ab%cd%e8')
+                    } else if (strSubBox === "wakayama1") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=30001&area_name=%cf%c2%b2%ce%bb%b3%20%b6%b6%cb%dc%20%cd%ad%c5%c4')
+                    } else if (strSubBox === "tanabe") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=30002&area_name=%c5%c4%ca%d5%20%b8%e6%cb%b7')
+                    } else if (strSubBox === "singuu") {
+                        window.open('https://www.p-world.co.jp/_machine/kensaku.cgi?area_cd=30003&area_name=%bf%b7%b5%dc%20%b6%fa%cb%dc')
                     }
                 }
-                
+
             </script>
+
+    <input type="button" value="戻る" onclick="history.back()">
+
+
 </body>
 </html>

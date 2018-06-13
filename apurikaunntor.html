@@ -5,14 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>カウンター</title>
+    <link rel="stylesheet" href="/Users/taguchierina/Desktop/zenkiyou/keijiban.css">
 </head>
 <body>
+
+    <body>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="apurikaunntor.html">カウンター</a></li>
+                <li><a href="setteihannbetu.html">設定の判別</a></li>
+                <li><a href="tenpo.html">店舗情報</a></li>
+                <li><a href="keijiban.html">掲示板情報</a></li>
+            </ul>
+        </nav>
+
+
     <h1>楽しいカウンター</h1>
 
     <label>打ち始め：<input type="text"></label><br>
 
     <label>現在回転数：<input type="text"></label>
-    
+
 <script>
     document.addEventListener('click', function (e) {
         var t = e.target;
@@ -38,6 +53,8 @@
     <input type="button" value="その他②">
     <span>0</span>
 </p>
- 
+
+
+<input type="button" value="戻る" onclick="history.back()">
 </body>
 </html>
